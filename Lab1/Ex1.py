@@ -3,14 +3,14 @@
 # find the alphabet of the sequence S
 
 def find_alphabet(sequence):
-    # Using a set to store unique symbols
     alphabet = set(sequence)
     return alphabet
+    
 
 if __name__ == "__main__":
-    # Example sequence
     S = "ATTGGCCCCGAAT"
     result = find_alphabet(S)
-    
     print("Sequence:", S)
     print("Alphabet:", result)
+    
+    
