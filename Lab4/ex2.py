@@ -63,3 +63,28 @@ top3_covid = top_amino_acids_from_codon_counts(covid_codons)
 top3_flu   = top_amino_acids_from_codon_counts(flu_codons)
 print("\nTop 3 amino acids (COVID-19):", top3_covid)
 print("Top 3 amino acids (Influenza):", top3_flu)
+
+ --- (E) formulate an AI prompt using the 3 most common amino acids ---
+AA_FULL = {
+    "A":"Alanine","R":"Arginine","N":"Asparagine","D":"Aspartic acid","C":"Cysteine",
+    "E":"Glutamic acid","Q":"Glutamine","G":"Glycine","H":"Histidine","I":"Isoleucine",
+    "L":"Leucine","K":"Lysine","M":"Methionine","F":"Phenylalanine","P":"Proline",
+    "S":"Serine","T":"Threonine","W":"Tryptophan","Y":"Tyrosine","V":"Valine"
+}
+
+def prompt_for_low_foods(top3):
+    one_letter = [aa for aa, _ in top3]
+    full_names = [AA_FULL.get(a, a) for a in one_letter]
+    return (
+        "You are a nutrition assistant. Suggest common foods that are naturally LOW in "
+        f"these amino acids: {', '.join(full_names)} (one-letter codes: {', '.join(one_letter)}). "
+        "Give 8–12 examples across vegetables, fruits, grains, and dairy; avoid foods known to be rich in them. "
+        "Return as a bullet list."
+    )
+
+covid_prompt = prompt_for_low_foods(top3_covid)
+flu_prompt   = prompt_for_low_foods(top3_flu)
+
+print("\n(E) AI Prompt for COVID-19 top-3 amino acids:\n", covid_prompt)
+print("\n(E) AI Prompt for Influenza top-3 amino acids:\n", flu_prompt)
+
