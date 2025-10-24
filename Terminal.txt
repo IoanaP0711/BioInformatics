@@ -1,0 +1,12 @@
+cd path to cloned repo
+check remote & branch
+git remote -v
+git branch --show-current
+add file
+files need to be inside the folder of the repo
+stage & commit
+git status
+git add .
+git commit -m "whatever, in order to commit"
+push to github
+git push
